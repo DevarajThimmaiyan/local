@@ -1,0 +1,4 @@
+name = "Standard Hacks"
+description = "It can be used for all customization"
+core = "7.x"
+package = "custom"

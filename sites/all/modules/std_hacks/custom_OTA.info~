@@ -1,0 +1,4 @@
+name = "Nidarooms Mobile API Service"
+description = "Mobile API functionalities"
+core = "7.x"
+package = "custom"

@@ -1,0 +1,38 @@
+<?php
+	
+/* OTA API initializations 	*/
+
+function std_hacks_init(){
+
+}
+
+function std_hacks_menu(){
+		$items = array();
+
+		$items['test-page'] = array(
+		'title' => 'Test Page',
+		'page callback' => 'test_page',
+		'access callback' => TRUE,
+		);
+ 
+		return $items;      
+}
+
+function test_page(){
+	return "sdfsf";
+}
+
+function std_hacks_node_presave($node){
+	if($node->status == 1 && $node->type == 'custom'){
+		$notif = $node->field_notification['und'][0]['value'];
+
+		if($notif == 1){
+		require('Pusher.php');
+		$data['message'] = $node->title;
+		$pusher = new Pusher('c1802c86492c76682068', 'dafee8c5e15ab5ea8d9e', '220245');
+		$response = $pusher->trigger('test_channel', 'my_event', $data);
+		}
+	
+	}		
+
+}

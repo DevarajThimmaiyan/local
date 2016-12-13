@@ -1,0 +1,5 @@
+#
+<Files ~ "\.(otf|ttf|eot|woff|css)$">
+  SetEnvIf Origin "^http(s)?://(.+.)?(pardot.com|www2.aricent.com)$" origin_is=$0
+  Header set Access-Control-Allow-Origin %{origin_is}e env=origin_is
+</Files>
